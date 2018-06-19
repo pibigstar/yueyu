@@ -1,0 +1,18 @@
+#####使用哪个环境 prod生成环境  dev开发环境########
+spring:
+  profiles:
+    active: dev
+##########公共配置##########   
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: update
+    database: mysql
+########## 静态资源访问配置 ###########
+  mvc:
+    static-path-pattern: /**
+  resources:
+    static-locations: classpath:/static/
+
+  thymeleaf:
+    cache: false #开启模板热部署
