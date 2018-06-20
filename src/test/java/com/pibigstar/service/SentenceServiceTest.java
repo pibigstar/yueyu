@@ -52,4 +52,19 @@ public class SentenceServiceTest {
 		log.info(sentence.toString());
 	}
 	
+	@Test
+	public void testFindLike() {
+		List<Sentence> sentences = sentenceService.findAllLike("你总说");
+		for (Sentence sentence : sentences) {
+			log.info(sentence.toString());
+		}
+	}
+	@Test
+	public void testFindAllLike() {
+		List<Sentence> sentences = sentenceService.findAllLike("背对背");
+		for (Sentence sentence : sentences) {
+			log.info(sentence.toString());
+		}
+	}
+	
 }

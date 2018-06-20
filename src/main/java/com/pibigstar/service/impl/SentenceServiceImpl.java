@@ -4,6 +4,9 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -38,7 +41,6 @@ public class SentenceServiceImpl implements SentenceService{
 
 	@Override
 	public List<Sentence> findAllByType(String type) {
-		
 		return sentenceDao.findListByCategory(type);
 	}
 
@@ -48,8 +50,17 @@ public class SentenceServiceImpl implements SentenceService{
 	}
 
 	@Override
-	public List<Sentence> findByPages(int offset, int limit) {
-		return null;
+	public List<Sentence> findAllLike(String text) {
+		
+		return sentenceDao.findByTextContainingOrTitleContaining(text, text);
+	}
+
+	@Override
+	public List<Sentence> findAllByCategory(String type, int page,int size) {
+		//按照点赞数量排序
+		Sort sort = new Sort(Sort.Direction.DESC,"snap");
+		Pageable pageable = new PageRequest(page, size, sort);
+		return 	sentenceDao.findAllByCategory(type, pageable);
 	}
 
 
