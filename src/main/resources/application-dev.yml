@@ -3,9 +3,17 @@
 server:
   port: 8080
 
-spring:
-  datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/yueyu?useUnicode=true&characterEncoding=utf-8&useSSL=false
-    data-username: root
-    data-password: 123456
+#spring:
+#  datasource:
+#    driver-class-name: com.mysql.jdbc.Driver
+#    url: jdbc:mysql://127.0.0.1:3306/yueyu?useUnicode=true&characterEncoding=utf-8&useSSL=false
+#    data-username: root
+#    data-password: 123456
+
+spring: 
+    datasource: 
+        name: yueyu
+        url: jdbc:mysql://localhost:3306/yueyu?useUnicode=true&characterEncoding=UTF-8
+        username: root
+        password: 123456
+        driver-class-name: com.mysql.jdbc.Driver

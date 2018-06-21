@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.pibigstar.common.annotation.MyLogger;
 import com.pibigstar.domain.Sentence;
 import com.pibigstar.domain.enums.Type;
 import com.pibigstar.domain.result.MyResponse;

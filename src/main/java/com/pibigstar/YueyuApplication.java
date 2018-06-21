@@ -9,4 +9,5 @@ public class YueyuApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(YueyuApplication.class, args);
 	}
+	
 }
