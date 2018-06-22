@@ -6,10 +6,11 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.pibigstar.domain.Sentence;
+import com.pibigstar.domain.enums.Category;
 
 public interface SentenceDao extends JpaRepository<Sentence, Long>{
 
-	public List<Sentence> findListByCategory(String type);
+	public List<Sentence> findListByCategory(Category category);
 	
 	public List<Sentence> findAllByCategory(String type,Pageable pageable);
 	

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="/js/mui.min.js"></script>
+    <link href="/css/mui.min.css" rel="stylesheet"/>
+    <script type="text/javascript" charset="utf-8">
+          mui.init();
+          
+          function postdata(){
+              
+              document.getElementById("result").value = "ajax请求发送中……";
+              var input_name = document.getElementById("namevalue").value;
+//          alert(input_name);
+              mui.ajax({
+                          url : 'http://127.0.0.1:8080/_ajax/ServerJson.php',
+                          type : 'post',
+                          headers: {
+                            'Content-Type': 'application/json'
+                        },
+                          data : { name : input_name }, 
+                          timeout : 10000,
+                          success : function(data){
+//                              console.log(data);
+                              var result = eval('('+ data +')');    //js原生方法解析json字符串为json对象
+                              document.getElementById("result").value = result.name;
+                          },
+                          error : function(xhr,type,errorThrown){
+                              console.log(xhr);
+                              console.log(type);
+                              console.log(errorThrown);
+                          }
+            });
+
+          }
+    </script>
+</head>
+<body>
+    
+    输入：<input type="text" id="namevalue"></input>
+    <button id="btn" onclick="postdata()">发送ajax请求</button>
+    <br /><br />
+    结果：<input type="text" id="result" value="结果"></input>
+</body>
+</html>

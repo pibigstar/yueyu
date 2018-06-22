@@ -5,6 +5,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.pibigstar.domain.enums.ExceptionMsg;
 import com.pibigstar.domain.result.MyResponse;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -20,11 +23,13 @@ public class BaseController {
 	@Autowired
 	protected HttpServletResponse response;
 	
+	protected Logger logger = LoggerFactory.getLogger(this.getClass());
+	
 	protected MyResponse success(String msg,Object data) {
 		return new MyResponse(ExceptionMsg.SUCCESS.getCode(), msg, true, data);
 	}
 	protected MyResponse success(Object data) {
-		return new MyResponse(ExceptionMsg.SUCCESS.getCode(),true, data);
+		return new MyResponse(ExceptionMsg.SUCCESS.getCode(),ExceptionMsg.SUCCESS.getMsg(),true, data);
 	}
 	
 	protected MyResponse error(String code,String msg,Object data) {

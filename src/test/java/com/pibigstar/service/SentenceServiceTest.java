@@ -12,7 +12,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.pibigstar.domain.Sentence;
-import com.pibigstar.domain.enums.Type;
+import com.pibigstar.domain.enums.Category;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -25,12 +25,28 @@ public class SentenceServiceTest {
 	@Test
 	public void testSave() {
 		Sentence sentence = new Sentence();
-		sentence.setCategory(Type.QUOTES.getType());
-		sentence.setText("你总说不清楚，该怎么明了");
+		sentence.setCategory(Category.JOKES);
+		sentence.setText("魔前一叩三千年，回首凡尘不做仙");
 		sentence.setUpdateTime(new Date());
 		sentence.setCreateTime(new Date());
-		sentence.setSnap(15L);
+		sentence.setSnap(250L);
 		sentenceService.add(sentence);
+		
+		Sentence sentence2 = new Sentence();
+		sentence2.setCategory(Category.QUOTES);
+		sentence2.setText("我以为你天生冷淡，直到看到你为他嘘寒问暖");
+		sentence2.setUpdateTime(new Date());
+		sentence2.setCreateTime(new Date());
+		sentence2.setSnap(500L);
+		sentenceService.add(sentence2);
+		
+		Sentence sentence3 = new Sentence();
+		sentence3.setCategory(Category.BEAUTIFUL);
+		sentence3.setText("左眼没有见过右眼一面，不懂安慰，只会陪它落泪");
+		sentence3.setUpdateTime(new Date());
+		sentence3.setCreateTime(new Date());
+		sentence3.setSnap(866L);
+		sentenceService.add(sentence3);
 	}
 	@Test
 	public void testFindAll() {
@@ -41,7 +57,7 @@ public class SentenceServiceTest {
 	}
 	@Test
 	public void testFindByType() {
-		List<Sentence> sentences = sentenceService.findAllByType(Type.QUOTES.getType());
+		List<Sentence> sentences = sentenceService.findAllByType(Category.QUOTES);
 		for (Sentence sentence : sentences) {
 			log.info(sentence.toString());
 		}
@@ -54,7 +70,7 @@ public class SentenceServiceTest {
 	
 	@Test
 	public void testFindLike() {
-		List<Sentence> sentences = sentenceService.findAllLike("你总说");
+		List<Sentence> sentences = sentenceService.findAllLike("魔前一叩");
 		for (Sentence sentence : sentences) {
 			log.info(sentence.toString());
 		}

@@ -5,14 +5,9 @@ package com.pibigstar.common.exception;
  * @author pibigstar
  *
  */
-public class NoPermissionException extends RuntimeException{
+public class NoPermissionException extends BusinessException{
 
-	private static final long serialVersionUID = -6192208802098107487L;
-
-	public NoPermissionException() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+	private static final long serialVersionUID = 1L;
 
 	public NoPermissionException(String message, Throwable cause) {
 		super(message, cause);
@@ -24,6 +19,4 @@ public class NoPermissionException extends RuntimeException{
 		// TODO Auto-generated constructor stub
 	}
 
-	
-	
 }

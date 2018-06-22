@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.data.domain.Pageable;
 
 import com.pibigstar.domain.Sentence;
+import com.pibigstar.domain.enums.Category;
 
 public interface SentenceService {
 
@@ -12,7 +13,7 @@ public interface SentenceService {
 	
 	public List<Sentence> findAll();
 	
-	public List<Sentence> findAllByType(String type);
+	public List<Sentence> findAllByType(Category category);
 	
 	public Sentence findById(Long id);
 	

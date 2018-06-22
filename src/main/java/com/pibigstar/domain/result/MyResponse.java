@@ -55,7 +55,6 @@ public class MyResponse {
 		this.code = "500";
 		this.msg = e.getMessage();
 		this.success = false;
-		this.data = e;
 	}
 	public MyResponse(ExceptionMsg e) {
 		super();

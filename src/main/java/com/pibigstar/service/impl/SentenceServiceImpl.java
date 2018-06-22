@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.pibigstar.dao.SentenceDao;
 import com.pibigstar.domain.Sentence;
+import com.pibigstar.domain.enums.Category;
 import com.pibigstar.service.SentenceService;
 
 @Service
@@ -40,8 +41,8 @@ public class SentenceServiceImpl implements SentenceService{
 	}
 
 	@Override
-	public List<Sentence> findAllByType(String type) {
-		return sentenceDao.findListByCategory(type);
+	public List<Sentence> findAllByType(Category category) {
+		return sentenceDao.findListByCategory(category);
 	}
 
 	@Override

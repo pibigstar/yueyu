@@ -4,8 +4,12 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+
+import com.pibigstar.domain.enums.Category;
 
 @Entity
 public class Sentence {
@@ -17,8 +21,10 @@ public class Sentence {
 	private String title;
 	
 	private String text;//内容
-	@Column(unique = true,nullable = false)
-	private String category;//类别
+	
+	@Column(nullable = false)
+	@Enumerated(EnumType.STRING) 
+	private Category category;//类别
 	
 	private Long snap;//点赞数量
 	
@@ -50,11 +56,11 @@ public class Sentence {
 		this.text = text;
 	}
 
-	public String getCategory() {
+	public Category getCategory() {
 		return category;
 	}
 
-	public void setCategory(String category) {
+	public void setCategory(Category category) {
 		this.category = category;
 	}
 
