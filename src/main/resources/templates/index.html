@@ -1,14 +1,161 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>悦语---分享最优秀的句子</title>
-<link rel="stylesheet" href="/css/bootstrap.min.css">
-<link rel="stylesheet" href="/css/layer.css">
+	<meta charset="utf-8">
+	<title>悦语---分享最优秀的句子</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <script src="js/mui.min.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/openWindow.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/mui.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/app.css"/>
+	<link rel="stylesheet" type="text/css" href="css/icons-extra.css"/>
+	<style>
+	.slider-img{
+		height:200px
+	}
+	.title {
+			margin: 15px 15px 10px;
+			color: #6d6d72;
+			font-size: 20px;
+		}
+	
+	</style>
+   
 </head>
 <body>
-
-
-
+    <div class="mui-content">
+		<!-- 搜索框 -->
+		<div class="mui-input-row mui-search">
+			<input type="search" class="mui-input-clear" placeholder="全站搜索">
+		</div>
+		<!-- 底部导航栏 -->
+		<nav class="mui-bar mui-bar-tab">
+			<a class="mui-tab-item mui-active" onClick="index()">
+				<span class="mui-icon mui-icon-home"></span>
+				<span class="mui-tab-label">首页</span>
+			</a>
+			<a class="mui-tab-item" onClick="duanzi()">
+				<span class="mui-icon mui-icon-flag"></span>
+				<span class="mui-tab-label">段子</span>
+			</a>
+			<a class="mui-tab-item" onClick="weimei()">
+				<span class="mui-icon mui-icon-star"></span>
+				<span class="mui-tab-label">唯美</span>
+			</a>
+			<a class="mui-tab-item" onClick="info()">
+				<span class="mui-icon mui-icon-contact mui-icon-icon-contact-filled"></span>
+				<span class="mui-tab-label">我的</span>
+			</a>
+		</nav>
+		
+		
+		<!--图片轮播图部分 -->
+		
+		<div id="slider" class="mui-slider">
+				<div class="mui-slider-group mui-slider-loop">
+					<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+					<div class="mui-slider-item mui-slider-item-duplicate">
+						<a href="#">
+							<img class="slider-img" src="images/yuantiao.jpg">
+							<p class="mui-slider-title">静静看这世界</p>
+						</a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#">
+							<img class="slider-img" src="images/shuijiao.jpg">
+							<p class="mui-slider-title">幸福就是可以一起睡觉</p>
+						</a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#">
+							<img class="slider-img" src="images/muwu.jpg">
+							<p class="mui-slider-title">想要一间这样的木屋，静静的喝咖啡</p>
+						</a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#">
+							<img class="slider-img" src="images/cbd.jpg">
+							<p class="mui-slider-title">Color of SIP CBD</p>
+						</a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#">
+							<img class="slider-img" src="images/yuantiao.jpg">
+							<p class="mui-slider-title">静静看这世界</p>
+						</a>
+					</div>
+					<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+					<div class="mui-slider-item mui-slider-item-duplicate">
+						<a href="#">
+							<img class="slider-img" src="images/shuijiao.jpg">
+							<p class="mui-slider-title">幸福就是可以一起睡觉</p>
+						</a>
+					</div>
+				</div>
+				<div class="mui-slider-indicator mui-text-right">
+					<div class="mui-indicator mui-active"></div>
+					<div class="mui-indicator"></div>
+					<div class="mui-indicator"></div>
+					<div class="mui-indicator"></div>
+				</div>
+			</div>
+			
+			<!--点赞排行 -->
+			<div class="title">
+				点赞排行
+			</div>
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-right" src="images/yuantiao.jpg">
+						<div class="mui-media-body">
+							远眺
+							<p class='mui-ellipsis'>静静的看这个世界，最后终于疯了</p>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-right" src="images/shuijiao.jpg">
+						<div class="mui-media-body">
+							幸福
+							<p class='mui-ellipsis'>能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-right" src="images/muwu.jpg">
+						<div class="mui-media-body">
+							木屋
+							<p class='mui-ellipsis'>想要这样一间小木屋，夏天挫冰吃瓜，冬天围炉取暖.</p>
+						</div>
+					</a>
+				</li>
+			</ul>
+	</div>
 </body>
+
+
+<script>
+mui.init({
+	 swipeBack:true //启用右滑关闭功能	
+});
+$(function(){
+	var slider = mui("#slider");
+	slider.slider({
+			interval: 3000
+	});
+	if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+	    //手机端操作
+	} else {
+	    //电脑端操作，图片放大
+	    $(".slider-img").css("height","300px")
+	}
+});
+</script>
+
 </html>
